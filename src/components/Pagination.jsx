@@ -10,10 +10,11 @@ const Pagination = ({
 
     const handlePageChange = (pageNumber) => {
         onPageChange(pageNumber);
-        // Scroll to top on mobile
-        if (window.innerWidth <= 480) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // Scroll to top smoothly on all devices
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     };
 
     // Generate page numbers array
