@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&family=PT+Sans+Narrow:wght@400;700&display=swap');
+
+:root {
+    /* Add font family variables */
+    --header-font: 'Emilys Candy', serif;
+    --body-font: 'PT Sans Narrow', sans-serif;
+
+    /* Add your theme variables here */
+    --primary-color: #ff6b6b;
+    --primary-color-dark: #ff5252;
+    --secondary-color: #4ecdc4;
+    --background-color: #ffffff;
+    --card-background: #ffffff;
+    --text-color: #2d3436;
+    --text-secondary: #636e72;
+    --border-color: #dfe6e9;
+    --error-color: #d63031;
+
+    /* Add scrollbar variables */
+    --scrollbar-width: 10px;
+    --scrollbar-track: #f1f1f1;
+    --scrollbar-thumb: var(--primary-color);
+    --scrollbar-thumb-hover: var(--primary-color-dark);
+}
+
+/* Dark theme variables */
+[data-theme='dark'] {
+    --background-color: #2d3436;
+    --card-background: #353b48;
+    --text-color: #f5f6fa;
+    --text-secondary: #dfe6e9;
+    --border-color: #636e72;
+
+    /* Dark theme scrollbar */
+    --scrollbar-track: #2d3436;
+    --scrollbar-thumb: #636e72;
+    --scrollbar-thumb-hover: #7f8c8d;
+}
+
+/* Scrollbar styles for Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Scrollbar styles for Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
