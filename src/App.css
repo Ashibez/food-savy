@@ -487,17 +487,22 @@ nav {
     .pagination {
         flex-wrap: wrap;
         gap: 0.5rem;
+        max-width: 300px;
+        margin: 2rem auto;
     }
 
     .page-numbers {
         order: 2;
         width: 100%;
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.3rem;
     }
 
     .pagination-button {
         padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
+        min-width: 35px;
     }
 
     .recipe-meta {

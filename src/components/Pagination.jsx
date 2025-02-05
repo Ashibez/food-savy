@@ -8,6 +8,14 @@ const Pagination = ({
 }) => {
     const totalPages = Math.ceil(totalRecipes / recipesPerPage);
 
+    const handlePageChange = (pageNumber) => {
+        onPageChange(pageNumber);
+        // Scroll to top on mobile
+        if (window.innerWidth <= 480) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
     // Generate page numbers array
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -20,7 +28,7 @@ const Pagination = ({
     return (
         <div className="pagination">
             <button
-                onClick={() => onPageChange(currentPage - 1)}
+                onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
                 className="pagination-button"
             >
@@ -31,7 +39,7 @@ const Pagination = ({
                 {pageNumbers.map((number) => (
                     <button
                         key={number}
-                        onClick={() => onPageChange(number)}
+                        onClick={() => handlePageChange(number)}
                         className={`pagination-button ${
                             currentPage === number ? 'active' : ''
                         }`}
@@ -42,7 +50,7 @@ const Pagination = ({
             </div>
 
             <button
-                onClick={() => onPageChange(currentPage + 1)}
+                onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
                 className="pagination-button"
             >
