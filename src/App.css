@@ -371,7 +371,25 @@ nav {
     transform: scale(0.95);
 }
 
-/* Add animation for the icon switch */
+/* Add smile animation */
+@keyframes biggerSmile {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Update theme toggle styles */
+.theme-toggle:hover span {
+    animation: biggerSmile 0.5s ease;
+}
+
+/* Keep the existing transitions */
 .theme-toggle span {
     position: absolute;
     transition: all 0.3s ease;
@@ -385,6 +403,11 @@ nav {
 .theme-toggle span.enter {
     transform: translateY(0);
     opacity: 1;
+}
+
+/* Add delay to moon emoji */
+.theme-toggle span:last-child {
+    animation-delay: 0.1s;
 }
 
 /* Update the nav-title styles */
@@ -611,4 +634,57 @@ nav {
         display: block;
         margin-top: 0.5rem;
     }
+}
+
+/* Update Apple animation styles */
+@keyframes sliceAndShake {
+    0% {
+        transform: translateY(1px) rotate(0deg) scale(1);
+    }
+    20% {
+        transform: translateY(1px) rotate(-15deg) scale(0.8);
+    }
+    40% {
+        transform: translateY(1px) rotate(15deg) scale(1.2);
+    }
+    60% {
+        transform: translateY(1px) rotate(-10deg) scale(0.9);
+    }
+    80% {
+        transform: translateY(1px) rotate(10deg) scale(1.1);
+    }
+    100% {
+        transform: translateY(1px) rotate(0deg) scale(1);
+    }
+}
+
+/* Initial load animation */
+.nav-title .apple {
+    animation: sliceAndShake 1s ease;
+    animation-iteration-count: 1;
+    display: inline-block;
+}
+
+/* Reset animation on hover end */
+.nav-title .apple {
+    animation: none;
+}
+
+/* Apply hover animation */
+.nav-title:hover .apple {
+    animation: sliceAndShake 0.5s ease;
+}
+
+/* Keep existing apple styles */
+.nav-title h1 .apple {
+    font-size: 1.6rem;
+    display: inline-block;
+    transform: translateY(1px);
+    margin: 0 -1px;
+    transition: transform 0.3s ease;
+}
+
+/* Add delay to second apple */
+.nav-title h1 .apple:last-child {
+    animation-delay: 0.2s;
 }
