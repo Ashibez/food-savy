@@ -42,7 +42,10 @@ const Home = () => {
                     number: 100,
                     addRecipeInformation: true,
                     instructionsRequired: true,
-                    fillIngredients: true
+                    fillIngredients: true,
+                    imageType: 'jpg',
+                    imageSize: 'original',
+                    quality: 100
                 })
             );
 

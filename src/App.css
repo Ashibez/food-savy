@@ -96,8 +96,14 @@ nav {
 
 .recipe-card img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
+    object-position: center;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    will-change: transform;
+    transition: transform 0.3s ease;
+    filter: brightness(1.02) contrast(1.02);
 }
 
 .recipe-content {
@@ -137,10 +143,16 @@ nav {
 
 .recipe-details img {
     width: 100%;
-    height: 400px;
+    max-height: 500px;
     object-fit: cover;
+    object-position: center;
     border-radius: 8px;
     margin: 2rem 0;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    will-change: transform;
+    filter: brightness(1.02) contrast(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .recipe-info {
@@ -439,7 +451,7 @@ nav {
 /* Mobile screens */
 @media screen and (max-width: 480px) {
     nav {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     .nav-title h1 {
@@ -539,4 +551,26 @@ nav {
     .recipe-ingredients {
         padding: 0 1rem;
     }
+}
+
+/* Remove transform from hover to prevent blur */
+.recipe-card:hover img {
+    transform: none;
+}
+
+/* Add a subtle overlay on hover instead */
+.recipe-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease;
+    pointer-events: none;
+}
+
+.recipe-card:hover::after {
+    background: rgba(0, 0, 0, 0.02);
 }
