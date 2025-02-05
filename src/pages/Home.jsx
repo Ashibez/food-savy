@@ -10,9 +10,11 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchQuery, setSearchQuery] = useState('');
     const recipesPerPage = 12;
 
-    const fetchRecipes = async (searchQuery = '') => {
+    const fetchRecipes = async (query = '') => {
+        setSearchQuery(query);
         if (!API_KEY) {
             setError(
                 'API key is missing. Please check your environment variables.'
@@ -25,7 +27,7 @@ const Home = () => {
             setLoading(true);
 
             // Check cache first
-            const cacheKey = `recipes-${searchQuery}`;
+            const cacheKey = `recipes-${query}`;
             const cachedData = localStorage.getItem(cacheKey);
 
             if (cachedData) {
@@ -38,7 +40,7 @@ const Home = () => {
             const response = await axios.get(
                 `${BASE_URL}/complexSearch`,
                 getApiConfig({
-                    query: searchQuery,
+                    query: query,
                     number: 100,
                     addRecipeInformation: true,
                     instructionsRequired: true,
@@ -109,6 +111,16 @@ const Home = () => {
                 </div>
             ) : (
                 <>
+                    {searchQuery && (
+                        <div className="search-results-header">
+                            <h2>
+                                Search results for "{searchQuery}"
+                                <span className="results-count">
+                                    ({recipes.length} recipes found)
+                                </span>
+                            </h2>
+                        </div>
+                    )}
                     <div className="recipes-grid">
                         {currentRecipes.map((recipe) => (
                             <RecipeCard key={recipe.id} recipe={recipe} />

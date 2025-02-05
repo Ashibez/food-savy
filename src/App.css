@@ -579,3 +579,36 @@ nav {
 .recipe-card:hover::after {
     background: rgba(0, 0, 0, 0.02);
 }
+
+/* Search results header styles */
+.search-results-header {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+}
+
+.search-results-header h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: var(--body-font);
+}
+
+.results-count {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+}
+
+/* Update for mobile */
+@media screen and (max-width: 480px) {
+    .search-results-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .results-count {
+        font-size: 1rem;
+        display: block;
+        margin-top: 0.5rem;
+    }
+}
